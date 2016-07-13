@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en-us" ng-app="weatherApp">
+    <head>
+        <title>Weather App</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+        <meta charset="UTF-8">
+
+        <!-- load bootstrap and fontawesome via CDN -->
+        <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" />
+        <style>
+            html, body, input, select, textarea
+            {
+                font-size: 1.05em !important;
+            }
+        </style>
+
+        <!-- load angular via CDN -->
+        <script src="http://code.angularjs.org/1.5.7/angular.min.js"></script>
+        <script src="http://code.angularjs.org/1.5.7/angular-route.min.js"></script>
+        <script src="http://code.angularjs.org/1.5.7/angular-resource.min.js"></script>
+        <script>
+          var weatherApp = angular.module('weatherApp', ['ngRoute','ngResource']);
+        </script>
+        <script src="routes.js"></script>
+        <script src="services.js"></script>
+        <script src="controllers.js"></script>
+        <script src="directives.js"></script>
+    </head>
+    <body class="img-responsive" style="background: url('https://mykrai.files.wordpress.com/2012/05/d0bfd180d0b8d0bad0bcd0b5d182d0b8-d0bfd180d0be-d0b7d0b0d185d196d0b4-d181d0bed0bdd186d18f.jpg') no-repeat   center center fixed;
+-webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
+background-size: cover;">
+
+        <header>
+			<nav class="navbar navbar-inverse navbar-fixed-top">
+			<div class="container">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="/" style="color:#57C7C4;">Weather App</a>
+				</div>
+
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#/home" style="color:#57C7C4;"><i class="fa fa-home"></i> Home</a></li>
+  				<li><a href="#/forecast" style="color:#57C7C4;"><i class="fa fa-home"></i> Forecast</a></li>
+				</ul>
+			</div>
+			</nav>
+		</header>
+  <div style="min-height: 100%; min-height: 100vh; display: flex; align-items: center;">
+
+    <div class="container">
+
+      <div ng-view=""></div>
+
+		</div>
+
+  </div>
+    </body>
+</html>

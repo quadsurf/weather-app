@@ -1,0 +1,71 @@
+
+
+
+<div class="row">
+  <div class="col-md-6" style="color:white;font-weight:100;font-size:40px;">
+
+      Forecast for {{ city }}
+
+  </div>
+  <div class="col-md-6">
+    <ul class="nav nav-pills">
+      <li ng-class="{ 'active' : days === '3' }"><a href="#/forecast/3">3</a></li>
+      <li ng-class="{ 'active' : days === '5' }"><a href="#/forecast/5">5</a></li>
+      <li ng-class="{ 'active' : days === '7' }"><a href="#/forecast/7">7</a></li>
+      <li ng-class="{ 'active' : days === '10' }"><a href="#/forecast/10">10</a></li>
+    </ul>
+  </div>
+</div>
+
+
+
+<!--
+<img src="{{
+    weather.weather[0].description === 'light rain' ? weatherImg.lightrain
+  : weather.weather[0].description === 'light rain' ? weatherImg.lightrain
+  : weather.weather[0].description === 'light rain' ? weatherImg.lightrain
+  : weather.weather[0].description === 'light rain' ? weatherImg.lightrain
+  : weather.weather[0].description === 'light rain' ? weatherImg.lightrain
+  : weather.weather[0].description === 'light rain' ? weatherImg.lightrain
+  : weather.weather[0].description === 'light rain' ? weatherImg.lightrain
+  : weather.weather[0].description === 'light rain' ? weatherImg.lightrain
+  : weather.weather[0].description === 'light rain' ? weatherImg.lightrain
+ }}" alt="{{ weather.weather[0].main }}" />
+ -->
+
+<div class="row">
+  <div class="col-md-12">
+
+    <div ng-repeat="weather in weatherResult.list" class="panel panel-default col-md-2" style="margin:20px; background: rgba(0, 0, 0, 0.5)!important;">
+      <div class="panel-body">
+        <p class="text-center" style="color:white;">
+          {{ formatDate(weather.dt) | date: 'EEE' }}
+        </p>
+          <p class="text-center" style="color:white;">
+            <img class="img-responsive" ng-if="weather.weather[0].description === 'light rain'" ng-src="{{ weatherImg.lightrain }}" alt="{{ weather.weather[0].main }}" />
+              <img class="img-responsive" ng-if="weather.weather[0].description === 'moderate rain'" ng-src="{{ weatherImg.moderaterain }}" alt="{{ weather.weather[0].main }}" />
+                <img class="img-responsive" ng-if="weather.weather[0].description === 'heavy rain'" ng-src="{{ weatherImg.heavyrain }}" alt="{{ weather.weather[0].main }}" />
+                  <img class="img-responsive" ng-if="weather.weather[0].description === 'overcast clouds'" ng-src="{{ weatherImg.overcastclouds }}" alt="{{ weather.weather[0].main }}" />
+                    <img class="img-responsive" ng-if="weather.weather[0].description === 'clear sky'" ng-src="{{ weatherImg.clearsky }}" alt="{{ weather.weather[0].main }}" />
+                      <img class="img-responsive" ng-if="weather.weather[0].description === 'broken clouds'" ng-src="{{ weatherImg.overcastclouds }}" alt="{{ weather.weather[0].main }}" />
+                        <img class="img-responsive" ng-if="weather.weather[0].description === 'heavy intensity rain'" ng-src="{{ weatherImg.heavyrain }}" alt="{{ weather.weather[0].main }}" />
+                          <img class="img-responsive" ng-if="weather.weather[0].description === 'scattered clouds'" ng-src="{{ weatherImg.overcastclouds }}" alt="{{ weather.weather[0].main }}" />
+          </p>
+            <p class="text-center" style="color:white;font-size:100px;font-weight:100;">
+              {{ convert2Far(weather.temp.day) }}<sup style="font-size:55px !important;">°</sup>
+            </p>
+              <p class="text-center" style="color:white;">
+                {{ convert2Far(weather.temp.min) }}°
+              </p>
+                <p class="text-center" style="color:white;font-size:11px;">
+                  {{ weather.weather[0].description }}
+                </p>
+
+
+
+
+      </div>
+    </div>
+
+  </div>
+</div>
