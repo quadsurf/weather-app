@@ -7,11 +7,8 @@ weatherApp.controller('homeController', ['$scope', 'cityService', function($scop
   });
 }]);
 
-weatherApp.controller('forecastController', ['$scope', '$resource', '$routeParams' 'cityService', function($scope, $resource, $routeParams, cityService){
+weatherApp.controller('forecastController', ['$scope', '$resource', 'cityService', function($scope, $resource, cityService){
   $scope.city = cityService.city;
-
-  $scope.days = $routeParams.days || 5;
-
   $scope.weatherAPI = $resource('http://api.openweathermap.org/data/2.5/forecast/daily?appid=10a8c006e50645f16bb3675ed81bc3c3',
   {
     callback: 'JSON_CALLBACK'
@@ -22,7 +19,7 @@ weatherApp.controller('forecastController', ['$scope', '$resource', '$routeParam
   });
   $scope.weatherResult = $scope.weatherAPI.get({
     q: $scope.city,
-    cnt: $scope.days
+    cnt: 5
   });
   // console.log($scope.weatherResult);
   $scope.convert2Far = function(temp) {
@@ -39,6 +36,7 @@ weatherApp.controller('forecastController', ['$scope', '$resource', '$routeParam
     clearsky:'assets/clearsky.png',
     brokenclouds:'assets/overcastclouds.png',
     heavyintensityrain:'assets/heavyrain.png',
-    scatteredclouds:'assets/overcastclouds.png'
+    scatteredclouds:'assets/overcastclouds.png',
+    fewclouds:'assets/overcastclouds.png'
   };
 }]);

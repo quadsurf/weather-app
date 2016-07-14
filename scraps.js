@@ -4,6 +4,14 @@ heavyrain
 heavyintensityrain
 overcastclouds
 clearsky
+fewclouds
+
+<!-- <img src="{{
+    weather.weather[0].description === 'light rain' ? weatherImg.lightrain
+  : (weather.weather[0].description === 'light rain' ? weatherImg.lightrain)
+  : (weather.weather[0].description === 'light rain' ? weatherImg.lightrain)
+  : assets/weather-icons-set.png
+ }}" alt="{{ weather.weather[0].main }}" /> -->
 
 
 //SERVICES
