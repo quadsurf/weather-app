@@ -7,6 +7,20 @@ clearsky
 fewclouds
 
 
+$scope.weatherAPI = $resource('http://api.openweathermap.org/data/2.5/forecast/daily?appid=10a8c006e50645f16bb3675ed81bc3c3',
+{
+  callback: 'JSON_CALLBACK'
+}, {
+  get: {
+    method: 'JSONP'
+  }
+});
+$scope.weatherResult = $scope.weatherAPI.get({
+  q: $scope.city,
+  cnt: $scope.days
+});
+
+
 <img class="img-responsive" ng-src="{{
     weather.weather[0].description === 'light rain' ? weatherImg.lightrain
   : (weather.weather[0].description === 'moderate rain' ? weatherImg.moderaterain : weatherImg.clearsky)
