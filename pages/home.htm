@@ -1,31 +1,13 @@
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
 
-
+  <form ng-submit="submit()">
     <div class="form-group">
       <input type="text" ng-model="city" class="form-control input-lg col-lg-12" style="border: 0px solid #000000; background-color: transparent; color: white; font-size:30px !important; outline-style:none; box-shadow:none; border-color:transparent; text-align:center;" placeholder="{{ city }}" autofocus>
     </div>
-    <a href="#/forecast" class="btn btn-primary btn-lg col-lg-8 col-lg-offset-2">Get Forecast for {{ city }}</a>
-
-
-  </div>
-</div>
-
-
-
-
-
-
-<!-- <form ng-submit="submit()"> -->
-<!-- <form action="#/forecast">
-  <div class="form-group">
-    <input type="text" ng-model="city" class="form-control input-lg col-lg-12" style="border: 0px solid #000000; background-color: transparent; color: white; font-size:30px !important; outline-style:none; box-shadow:none; border-color:transparent; text-align:center;" placeholder="{{ city }}" autofocus>
-  </div>
+    <!-- <a href="#/forecast" class="btn btn-primary btn-lg col-lg-8 col-lg-offset-2">Get Forecast for {{ city }}</a> -->
     <input type="submit" class="btn btn-primary btn-lg col-lg-8 col-lg-offset-2" value="Get Forecast for {{ city }}">
-</form> -->
+  </form>
 
-
-<!-- <div class="form-group">
-  <input type="text" class="form-control">
+  </div>
 </div>
-<a href="#/forecast" class="btn btn-primary">Get Forecast</a> -->
