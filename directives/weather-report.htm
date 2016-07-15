@@ -4,8 +4,19 @@
     <!-- {{ formatDate(weather.dt) | date: 'EEE' }} -->
   </p>
     <p class="text-center" style="color:white;">
-      <!-- {{ weather.weather[0].description }}
-      {{ weatherImg.clearsky }} -->
+
+      <!-- <img class="img-responsive" ng-src="{{
+          weather.weather[0].description === 'light rain' ? weatherImg.lightrain
+        : (weather.weather[0].description === 'moderate rain' ? weatherImg.moderaterain)
+        : (weather.weather[0].description === 'heavy rain' ? weatherImg.heavyrain)
+        : (weather.weather[0].description === 'overcast clouds' ? weatherImg.overcastclouds)
+        : (weather.weather[0].description === 'clear sky' ? weatherImg.clearsky)
+        : (weather.weather[0].description === 'broken clouds' ? weatherImg.brokenclouds)
+        : (weather.weather[0].description === 'few clouds' ? weatherImg.fewclouds)
+        : (weather.weather[0].description === 'heavy intensity rain' ? weatherImg.heavyintensityrain)
+        : (weather.weather[0].description === 'scattered clouds' ? weatherImg.scatteredclouds : weatherImg.clearsky)
+       }}" alt="{{ weather.weather[0].main }}" /> -->
+
       <img class="img-responsive" ng-if="weather.weather[0].description === 'light rain'" ng-src="{{ weatherImg.lightrain }}" alt="{{ weather.weather[0].main }}" />
         <img class="img-responsive" ng-if="weather.weather[0].description === 'moderate rain'" ng-src="{{ weatherImg.moderaterain }}" alt="{{ weather.weather[0].main }}" />
           <img class="img-responsive" ng-if="weather.weather[0].description === 'heavy rain'" ng-src="{{ weatherImg.heavyrain }}" alt="{{ weather.weather[0].main }}" />

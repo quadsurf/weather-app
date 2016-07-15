@@ -6,12 +6,11 @@ overcastclouds
 clearsky
 fewclouds
 
-<!-- <img src="{{
+
+<img class="img-responsive" ng-src="{{
     weather.weather[0].description === 'light rain' ? weatherImg.lightrain
-  : (weather.weather[0].description === 'light rain' ? weatherImg.lightrain)
-  : (weather.weather[0].description === 'light rain' ? weatherImg.lightrain)
-  : assets/weather-icons-set.png
- }}" alt="{{ weather.weather[0].main }}" /> -->
+  : (weather.weather[0].description === 'moderate rain' ? weatherImg.moderaterain : weatherImg.clearsky)
+ }}" alt="{{ weather.weather[0].main }}" />
 
 
 //SERVICES
