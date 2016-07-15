@@ -1,0 +1,30 @@
+<div class="panel-body">
+  <p class="text-center" style="color:white;">
+    {{ formatDate({ adate: weather.dt }) | date: dateDisplay }}
+    <!-- {{ formatDate(weather.dt) | date: 'EEE' }} -->
+  </p>
+    <p class="text-center" style="color:white;">
+      <!-- {{ weather.weather[0].description }}
+      {{ weatherImg.clearsky }} -->
+      <img class="img-responsive" ng-if="weather.weather[0].description === 'light rain'" ng-src="{{ weatherImg.lightrain }}" alt="{{ weather.weather[0].main }}" />
+        <img class="img-responsive" ng-if="weather.weather[0].description === 'moderate rain'" ng-src="{{ weatherImg.moderaterain }}" alt="{{ weather.weather[0].main }}" />
+          <img class="img-responsive" ng-if="weather.weather[0].description === 'heavy rain'" ng-src="{{ weatherImg.heavyrain }}" alt="{{ weather.weather[0].main }}" />
+            <img class="img-responsive" ng-if="weather.weather[0].description === 'overcast clouds'" ng-src="{{ weatherImg.overcastclouds }}" alt="{{ weather.weather[0].main }}" />
+              <img class="img-responsive" ng-if="weather.weather[0].description === 'clear sky'" ng-src="{{ weatherImg.clearsky }}" alt="{{ weather.weather[0].main }}" />
+                <img class="img-responsive" ng-if="weather.weather[0].description === 'broken clouds'" ng-src="{{ weatherImg.brokenclouds }}" alt="{{ weather.weather[0].main }}" />
+                  <img class="img-responsive" ng-if="weather.weather[0].description === 'few clouds'" ng-src="{{ weatherImg.fewclouds }}" alt="{{ weather.weather[0].main }}" />
+                  <img class="img-responsive" ng-if="weather.weather[0].description === 'heavy intensity rain'" ng-src="{{ weatherImg.heavyrain }}" alt="{{ weather.weather[0].main }}" />
+                    <img class="img-responsive" ng-if="weather.weather[0].description === 'scattered clouds'" ng-src="{{ weatherImg.scatteredclouds }}" alt="{{ weather.weather[0].main }}" />
+    </p>
+      <p class="text-center" ng-class="normalizeTemp({ temp: weather.temp.day }) >= '100' ? 'tempColor2' : 'tempColor'">
+        {{ normalizeTemp({ temp : weather.temp.day }) }}<sup style="font-size:55px !important;">°</sup>
+        <!-- {{ convert2Far(weather.temp.day) }} -->
+      </p>
+        <p class="text-center" style="color:white;">
+          {{ normalizeTemp({ temp : weather.temp.min }) }}°
+          <!-- {{ convert2Far(weather.temp.min) }} -->
+        </p>
+          <p class="text-center" style="color:white;font-size:11px;">
+            {{ weather.weather[0].description }}
+          </p>
+</div>

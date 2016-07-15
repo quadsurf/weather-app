@@ -16,44 +16,16 @@
   <div class="col-md-6">
     <ul class="nav nav-pills">
       <li><a style="color:white;">Days: </a></li>
-      <li ng-class="{ 'active' : days === '3' }"><a href="#/forecast/3" style="color:#57C7C4;">3</a></li>
-      <li ng-class="{ 'active' : days === '5' }"><a href="#/forecast/5" style="color:#57C7C4;">5</a></li>
-      <li ng-class="{ 'active' : days === '7' }"><a href="#/forecast/7" style="color:#57C7C4;">7</a></li>
-      <li ng-class="{ 'active' : days === '10' }"><a href="#/forecast/10" style="color:#57C7C4;">10</a></li>
+      <li ng-class="{ 'active' : days === '3' }"><a href="#/forecast/3" style="color:white;">3</a></li>
+      <li ng-class="days === '5' ? 'active' : ''"><a href="#/forecast/5" style="color:white;">5</a></li>
+      <li ng-class="{ 'active' : days === '7' }"><a href="#/forecast/7" style="color:white;">7</a></li>
+      <li ng-class="{ 'active' : days === '10' }"><a href="#/forecast/10" style="color:white;">10</a></li>
     </ul>
   </div>
   <div class="col-md-12">
-
-    <div ng-repeat="weather in weatherResult.list" class="panel panel-default col-md-2" style="margin:20px; background: rgba(0, 0, 0, 0.5)!important;">
-      <div class="panel-body">
-        <p class="text-center" style="color:white;">
-          {{ formatDate(weather.dt) | date: 'EEE' }}
-        </p>
-          <p class="text-center" style="color:white;">
-            <img class="img-responsive" ng-if="weather.weather[0].description === 'light rain'" ng-src="{{ weatherImg.lightrain }}" alt="{{ weather.weather[0].main }}" />
-              <img class="img-responsive" ng-if="weather.weather[0].description === 'moderate rain'" ng-src="{{ weatherImg.moderaterain }}" alt="{{ weather.weather[0].main }}" />
-                <img class="img-responsive" ng-if="weather.weather[0].description === 'heavy rain'" ng-src="{{ weatherImg.heavyrain }}" alt="{{ weather.weather[0].main }}" />
-                  <img class="img-responsive" ng-if="weather.weather[0].description === 'overcast clouds'" ng-src="{{ weatherImg.overcastclouds }}" alt="{{ weather.weather[0].main }}" />
-                    <img class="img-responsive" ng-if="weather.weather[0].description === 'clear sky'" ng-src="{{ weatherImg.clearsky }}" alt="{{ weather.weather[0].main }}" />
-                      <img class="img-responsive" ng-if="weather.weather[0].description === 'broken clouds'" ng-src="{{ weatherImg.brokenclouds }}" alt="{{ weather.weather[0].main }}" />
-                        <img class="img-responsive" ng-if="weather.weather[0].description === 'few clouds'" ng-src="{{ weatherImg.fewclouds }}" alt="{{ weather.weather[0].main }}" />
-                        <img class="img-responsive" ng-if="weather.weather[0].description === 'heavy intensity rain'" ng-src="{{ weatherImg.heavyrain }}" alt="{{ weather.weather[0].main }}" />
-                          <img class="img-responsive" ng-if="weather.weather[0].description === 'scattered clouds'" ng-src="{{ weatherImg.scatteredclouds }}" alt="{{ weather.weather[0].main }}" />
-          </p>
-            <p class="text-center" style="color:white;font-size:100px;font-weight:100;">
-              {{ convert2Far(weather.temp.day) }}<sup style="font-size:55px !important;">°</sup>
-            </p>
-              <p class="text-center" style="color:white;">
-                {{ convert2Far(weather.temp.min) }}°
-              </p>
-                <p class="text-center" style="color:white;font-size:11px;">
-                  {{ weather.weather[0].description }}
-                </p>
-
-
-
-
-      </div>
+<!-- custom directive -->
+    <div ng-repeat="weather in weatherResult.list" class="panel panel-default col-md-2" style="margin:10px; background: rgba(0, 0, 0, 0.5)!important;">
+      <weather-report weather="weather" weather-img="weatherImg" normalize-temp="farConverter(temp)" format-date="dateFormatter(adate)" date-display="EEE"></weather-report>
     </div>
 
   </div>
