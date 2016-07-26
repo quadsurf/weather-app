@@ -1,7 +1,7 @@
 //ROUTES
-weatherApp.config(['$routeProvider', function($routeProvider){
+weatherApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider){
   $routeProvider
-    .when('/home', {
+    .when('/', {
       templateUrl: 'pages/home.htm',
       controller: 'homeController'
     })
@@ -13,5 +13,8 @@ weatherApp.config(['$routeProvider', function($routeProvider){
       templateUrl: 'pages/forecast.htm',
       controller: 'forecastController'
     })
-    .otherwise({ redirectTo: '/blah'});
+    .otherwise({ redirectTo: '/'});
+
+    $locationProvider.html5Mode({enabled:true,requireBase:false});
+
 }]);

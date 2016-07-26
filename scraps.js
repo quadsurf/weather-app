@@ -1,3 +1,9 @@
+$scope.submitData = function(){
+  var stringed = JSON.stringify($scope.view.formData);
+  $scope.view.redditData.push(JSON.parse(stringed));
+};
+
+
 lightrain
 moderaterain
 heavyrain
