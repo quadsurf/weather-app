@@ -58,7 +58,7 @@ $scope.city = $cityService.city;
     <div class="form-group">
       <input type="text" class="form-control">
     </div>
-    <a href="#/forecast" class="btn btn-primary">Get Forecast</a>
+    <a href="/forecast" class="btn btn-primary">Get Forecast</a>
   </div>
 </div> -->
 

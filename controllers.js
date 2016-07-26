@@ -25,14 +25,14 @@ weatherApp.controller('forecastController', ['$scope', '$routeParams', 'cityServ
     return new Date(dt * 1000);
   };
   $scope.weatherImg = {
-    lightrain:'assets/lightrain.png',
-    moderaterain:'assets/moderaterain.png',
-    heavyrain:'assets/heavyrain.png',
-    overcastclouds:'assets/overcastclouds.png',
-    clearsky:'assets/clearsky.png',
-    brokenclouds:'assets/overcastclouds.png',
-    heavyintensityrain:'assets/heavyrain.png',
-    scatteredclouds:'assets/overcastclouds.png',
-    fewclouds:'assets/overcastclouds.png'
+    lightrain:'../assets/lightrain.png',
+    moderaterain:'../assets/moderaterain.png',
+    heavyrain:'../assets/heavyrain.png',
+    overcastclouds:'../assets/overcastclouds.png',
+    clearsky:'../assets/clearsky.png',
+    brokenclouds:'../assets/overcastclouds.png',
+    heavyintensityrain:'../assets/heavyrain.png',
+    scatteredclouds:'../assets/overcastclouds.png',
+    fewclouds:'../assets/overcastclouds.png'
   };
 }]);
